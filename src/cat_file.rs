@@ -17,7 +17,7 @@ pub fn pretty_cat_file(hash: String) -> Result<()> {
     let path = Path::new(".git")
         .join("objects")
         .join(sub_directory)
-        .join(file_name)
+        .join(file_name);
 
     let file = BufReader::new(File::open(path)?);
     let decoder = ZlibDecoder::new(file);
