@@ -25,7 +25,10 @@ pub fn pretty_cat_file(hash: String) -> Result<()> {
     print_file(decoder)
 }
 
-fn print_file<R>(reader: R) -> Result<()> where R: Read, {
+fn print_file<R>(reader: R) -> Result<()> 
+where 
+    R: Read, 
+{
     let mut reader = BufReader::new(reader);
 
     let mut buffer = Vec::new();
