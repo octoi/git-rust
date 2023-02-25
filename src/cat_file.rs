@@ -22,7 +22,7 @@ pub fn pretty_cat_file(hash: String) -> Result<()> {
     let file = BufReader::new(File::open(path)?);
     let decoder = ZlibDecoder::new(file);
 
-    print_file(decoder);
+    print_file(decoder)
 }
 
 fn print_file<R>(reader: R) -> Result<()> where R: Read, {
