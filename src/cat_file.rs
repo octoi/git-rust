@@ -36,7 +36,7 @@ where
     buffer.pop();
 
     let object_type = String::from_utf8(buffer.clone())?;
-    if object_type.as_str() != "blobl" {
+    if object_type.as_str() != "blob" {
         return Err(anyhow!("Unsupported object type: {}", object_type));
     }
 
