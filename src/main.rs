@@ -7,6 +7,7 @@ use std::fs;
 
 mod cat_file;
 mod cli;
+mod hash_objects;
 
 fn main() -> Result<()> {
     let git_cli = Cli::parse();
@@ -24,6 +25,14 @@ fn main() -> Result<()> {
             }
 
             cat_file::pretty_cat_file(hash)?;
+        }
+        cli::SubCommands::HashObject { write, file } => {
+            if !write {
+                return Err(anyhow!("The `-w` flag is required"));
+            }
+
+            let hash = hash_objects::hash_and_write_file(file)?;
+            println!("{}", hash);
         }
     }
 
