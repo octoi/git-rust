@@ -1,4 +1,4 @@
-use anyhow::{Result};
+use anyhow::Result;
 use flate2::bufread::ZlibEncoder;
 use flate2::Compression;
 use sha1::{Digest, Sha1};
@@ -14,7 +14,7 @@ pub fn hash_and_write_file(path: PathBuf) -> Result<String> {
     let mut buffer = Vec::new();
 
     // Write the header
-    buffer.extend("blob".as_bytes());
+    buffer.extend("blob ".as_bytes());
     buffer.extend(size.to_string().as_bytes());
     buffer.push(0);
 
