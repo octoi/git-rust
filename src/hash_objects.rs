@@ -1,4 +1,4 @@
-use anyhow::{Result, Ok};
+use anyhow::{Result};
 use flate2::bufread::ZlibEncoder;
 use flate2::Compression;
 use sha1::{Digest, Sha1};
