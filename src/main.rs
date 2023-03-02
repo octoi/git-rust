@@ -8,6 +8,8 @@ use std::fs;
 mod cat_file;
 mod cli;
 mod hash_objects;
+mod ls_tree;
+mod object;
 
 fn main() -> Result<()> {
     let git_cli = Cli::parse();
@@ -33,6 +35,13 @@ fn main() -> Result<()> {
 
             let hash = hash_objects::hash_and_write_file(file)?;
             println!("{}", hash);
+        }
+        cli::SubCommands::LsTree { name_only, hash } => {
+            if !name_only {
+                return Err(anyhow!("The `--name-only` flag is required"))
+            }
+
+            ls_tree::ls_tree(hash)?;
         }
     }
 
