@@ -27,5 +27,15 @@ pub enum SubCommands {
 
         // File to hash
         file: PathBuf,
+    },
+
+    // Lists the contents of a given tree object
+    LsTree {
+        // List only filenames
+        #[arg(long)]
+        name_only: bool,
+
+        // The id of a tree
+        hash: String
     }
 }
