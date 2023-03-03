@@ -46,7 +46,7 @@ where
     reader.read_until(0, &mut buffer)?;
     buffer.pop();
 
-    let size: usize = String::from_utf8(buffer.clone())?.parse();
+    let size = String::from_utf8(buffer.clone())?.parse::<usize>();
 
     let mut content = Vec::new();
     reader.read_to_end(&mut content)?;
