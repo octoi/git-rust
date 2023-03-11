@@ -4,7 +4,7 @@ use anyhow::Result;
 use std::fs::{read_dir, DirEntry};
 use std::os::unix::ffi::OsStrExt;
 #[cfg(unix)]
-use std::os::unix::fs::PermissionExt;
+use std::os::unix::fs::PermissionsExt;
 use std::path::Path;
 
 const DIRECTORY_FLAG: u16 = 1 << 14;
