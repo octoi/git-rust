@@ -10,6 +10,7 @@ mod cli;
 mod hash_objects;
 mod ls_tree;
 mod object;
+mod write_tree;
 
 fn main() -> Result<()> {
     let git_cli = Cli::parse();
@@ -42,6 +43,10 @@ fn main() -> Result<()> {
             }
 
             ls_tree::ls_tree(hash)?;
+        }
+        cli::SubCommands::WriteTree => {
+            let hash = write_tree::write_tree(".")?;
+            println!("{}", hash);
         }
     }
 
